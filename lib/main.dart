@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.grey),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Text Button'),
+      home: const MyHomePage(title: 'Flutter Study'),
     );
   }
 }
@@ -32,21 +32,21 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
- Color _backgroundColor = Colors.white;
+  Color _backgroundColor = Colors.white;
 
   void _upDateColor() {
     setState(() {
-      _backgroundColor = (_backgroundColor == Colors.white) ? Colors.black54 : Colors.white;
+      _backgroundColor =
+          (_backgroundColor == Colors.white) ? Colors.black54 : Colors.white;
     });
   }
 
-    void _upDateOptionColor() {
+  void _upDateOptionColor() {
     setState(() {
-      _backgroundColor = (_backgroundColor == Colors.white) ? Colors.blueAccent : Colors.white;
+      _backgroundColor =
+          (_backgroundColor == Colors.white) ? Colors.blueAccent : Colors.white;
     });
   }
-
-  
 
   @override
   Widget build(BuildContext context) {
@@ -59,12 +59,15 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: _backgroundColor,
       body: Center(
         child: TextButton(
+          style: TextButton.styleFrom(
+            textStyle: const TextStyle(fontSize: 24),
+            padding: const EdgeInsets.all(16),
+          ),
           onPressed: _upDateColor,
           onLongPress: _upDateOptionColor,
-          child:  const Text("Text Button"),
+          child: const Text("Text Button"),
         ),
       ),
-     
     );
   }
 }
