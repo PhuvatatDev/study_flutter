@@ -40,6 +40,14 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+    void _upDateOptionColor() {
+    setState(() {
+      _backgroundColor = (_backgroundColor == Colors.white) ? Colors.blueAccent : Colors.white;
+    });
+  }
+
+  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,6 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: TextButton(
           onPressed: _upDateColor,
+          onLongPress: _upDateOptionColor,
           child:  const Text("Text Button"),
         ),
       ),
