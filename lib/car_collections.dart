@@ -10,7 +10,11 @@ class CarCollectionsPage extends StatefulWidget {
 }
 
 class _CarCollectionsPageState extends State<CarCollectionsPage> {
-  String _firstName = ""; // Enlever `final` pour rendre cette variable modifiable
+  String _firstName = ""; 
+  double _kms = 0;
+  bool _electric = true;
+  final List<int> _places = [2, 4, 5, 7];
+  int _placesSelected = 2;
 
   Padding _interactiveWidget(
       {required List<Widget> children, bool isRow = false}) {
@@ -41,6 +45,24 @@ void _upDateFirstName(String newValue) {
   });
 }
 
+void _kmsUpDate(double newValue){
+  setState(() {
+    _kms = newValue;
+  });
+}
+
+void _upDateElectric (bool newValue){
+  setState(() {
+    _electric = newValue;
+  });
+}
+
+void _upDatePlace (int? newValue){
+  setState(() {
+    _placesSelected = newValue ?? 2;
+  });
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,7 +89,13 @@ void _upDateFirstName(String newValue) {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Text("Welcome: $_firstName"),
+            Text("Welcome: $_firstName", 
+            style: const TextStyle(
+              fontSize: 20,
+              color: Colors.blue,
+              height: 3.0
+            
+            ),),
             _interactiveWidget(
               children: [
                 TextField(
@@ -79,9 +107,52 @@ void _upDateFirstName(String newValue) {
                 ),
               ],
             ),
+            _interactiveWidget(
+              children: [
+                Text("Nombre de Kilométre annuel: ${_kms.toInt()} Kmd"),
+                Slider(
+                  min: 0,
+                  max: 25000,
+                  value: _kms, 
+                  onChanged: _kmsUpDate)
+              ]
+            ),
+            _interactiveWidget(
+              isRow: true,
+              children: [
+                Text(_electric ? "Moteur électrique": "Moteur thermique"),
+                Switch(
+                  value: _electric, 
+                  onChanged: _upDateElectric
+                ),
+              ]
+            ),
+            _interactiveWidget(
+              children: [
+                Text("Nombre de places: $_placesSelected"),
+                 Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisSize: MainAxisSize.max,
+                  children: _places.map((place) {
+                    return Column(
+                      children: [
+                        Radio(
+                          value: place, 
+                          groupValue: _placesSelected, 
+                          onChanged: _upDatePlace)
+                      ],
+                    );
+                  }).toList(),
+                )
+              ]
+            ),
           ],
         ),
       ),
     );
   }
 }
+
+
+
+
