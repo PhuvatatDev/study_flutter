@@ -10,11 +10,41 @@ class CarCollectionsPage extends StatefulWidget {
 }
 
 class _CarCollectionsPageState extends State<CarCollectionsPage> {
+  String _result = "";
   String _firstName = ""; 
   double _kms = 0;
   bool _electric = true;
   final List<int> _places = [2, 4, 5, 7];
   int _placesSelected = 2;
+  final Map<String, bool> _options = {
+    "GPS" : false,
+    "Caméra de recul": false,
+    "Clim par zone": false,
+    "Régulateur de vitesse": false,
+    "toit ouvrant": false,
+    "Siége chauffant": false,
+    "Roue de secours": false,
+    "Jante alu": false,
+  };
+
+  Car? _carSelected;
+
+  //La Liste de voitures
+  final List<Car> _cars= [
+    Car(name: "MG cyberster", url: "MG", places: 2, isElectric: true),
+    Car(name: "R5 électrique", url: "R5", places: 4, isElectric: true),
+    Car(name: "Tesla", url: "tesla", places: 5, isElectric: true),
+    Car(name: "Van VW", url: "Van", places: 7, isElectric: true),
+    Car(name: "Alpine", url: "Alpine", places: 2, isElectric: false),
+    Car(name: "Fiat 500", url: "Fiat 500", places: 4, isElectric: false),
+    Car(name: "Peugeot 3008", url: "P3008", places: 5, isElectric: false),
+    Car(name: "Dacia Jogger", url: "Jogger", places: 7, isElectric: false),
+  ];
+
+
+  String? _image;
+
+
 
   Padding _interactiveWidget(
       {required List<Widget> children, bool isRow = false}) {
@@ -63,6 +93,41 @@ void _upDatePlace (int? newValue){
   });
 }
 
+void _upDateOptions (bool? newBool, String key){
+  setState(() {
+    _options[key] = newBool ?? false;
+  });
+}
+
+void _handleResult(){
+
+  setState(() {
+    _result = _isGoodChoice();
+    _carSelected = _cars.firstWhere((car)=> car.isElectric == _electric && car.places == _placesSelected);
+  });
+
+
+}
+
+String _isGoodChoice(){
+
+  if (_kms> 15000 && _electric){
+
+    return "vous devriez pensez à un moteur thermique";
+
+  } else if (_kms < 5000 && !_electric){
+
+    return "vous faites peu de kilométres, pemsez à regarder les voitures electric";
+
+  } else{
+
+    return "Voici la voiture faite pour vous";
+
+  }
+
+}
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,7 +139,7 @@ void _upDatePlace (int? newValue){
           Container(
             margin: const EdgeInsets.all(10),
             child: TextButton(
-              onPressed: () {},
+              onPressed: _handleResult,
               style: const ButtonStyle(
                 textStyle: WidgetStatePropertyAll(
                   TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
@@ -96,6 +161,23 @@ void _upDatePlace (int? newValue){
               height: 3.0
             
             ),),
+
+            Card(
+              margin: const EdgeInsets.all(16),
+              child: Container(
+                padding: const EdgeInsets.all(16),
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Text(_result),
+                    (_carSelected == null)
+                    ? const SizedBox(height: 10,)
+                    :Image.asset(_carSelected!.urlString, fit: BoxFit.contain,),
+                    Text(_carSelected?.name ?? "No Name Car"),
+                  ],
+                ),
+              ),
+            ),
             _interactiveWidget(
               children: [
                 TextField(
@@ -146,12 +228,40 @@ void _upDatePlace (int? newValue){
                 )
               ]
             ),
+            _interactiveWidget(
+              children: [
+                const Text("Options du Véhicule"),
+                Column(
+                  children: _options.keys.map((key){
+                    return CheckboxListTile(
+                      title: Text(key),
+                      value: _options[key], 
+                      onChanged: ((b) => _upDateOptions(b, key))
+                    );
+                  }).toList(),
+                ),
+              ]
+            )
           ],
         ),
       ),
     );
   }
 }
+
+
+class Car {
+  String name;
+  String url;
+  int places;
+  bool isElectric;
+
+  Car ({required this.name, required this.url, required this.places, required this.isElectric});
+
+  String get urlString => "asset/images/$url.jpg";
+}
+
+
 
 
 
