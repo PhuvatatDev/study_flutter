@@ -1,16 +1,37 @@
-# study_flutter
+# 🧪 Study Flutter
 
-A new Flutter project.
+This repository is dedicated to my daily Flutter and Dart training.
 
-## Getting Started
+Here, I experiment with:
+- 🔁 Dart algorithm practice (loops, lists, maps, conditions)
+- 🧱 Manual Flutter widget writing (like Navigator, BlocBuilder, TextField...)
+- 🧩 UI rendering and navigation exercises
+- 🧠 Logical thinking and real app feature simulations
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## 📂 Folder Structure
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+| Folder/File              | Description                                       |
+|--------------------------|---------------------------------------------------|
+| `dart_algos/`            | Dart algorithm exercises (file per exercise)     |
+| `widget_tests/`          | Manual widget writing from memory                |
+| `ui_experiments/`        | Screens & components to train rendering          |
+| `README.md`              | This file                                        |
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+
+## ✅ Why this repo?
+
+Even though it's not a production app, this repo is part of my real learning process.  
+Everything pushed here represents effort and growth — it's my **training ground** to sharpen my Flutter and Dart skills.
+
+---
+
+## 💪 Goal
+
+Gradually reach a level where I can:
+- Solve Dart algorithm problems with ease
+- Build UI flows without relying on documentation
+- Structure logic like in real production apps
+
