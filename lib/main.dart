@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:study_flutter/car_collections.dart';
+import 'package:study_flutter/car_collections_page.dart';
 
 void main() {
   runApp(const MyApp());
