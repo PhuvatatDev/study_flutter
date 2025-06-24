@@ -26,9 +26,8 @@ class _CarCollectionsPageState extends State<CarCollectionsPage> {
     "Roue de secours": false,
     "Jante alu": false,
   };
-
   Car? _carSelected;
-
+          
   //La Liste de voitures
   final List<Car> _cars = [
     Car(name: "MG cyberster", url: "MG", places: 2, isElectric: true),
