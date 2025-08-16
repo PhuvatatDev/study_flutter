@@ -134,7 +134,7 @@ class _LiveTextPageState extends State<LiveTextPage> {
           children: [
             TextField(controller: _controller),
             const SizedBox(height: 20),
-            const Text('Vous avez tapé : \$_text'),
+            Text('Vous avez tapé : $_text'),
           ],
         ),
       ),
@@ -239,8 +239,8 @@ class _BottomNavPageState extends State<BottomNavPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Navigation Bas')),
-      body: const Center(
-        child: Text('Onglet sélectionné : \${_titles[_currentIndex]}'),
+      body: Center(
+        child: Text('Onglet sélectionné : ${_titles[_currentIndex]}'),
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
