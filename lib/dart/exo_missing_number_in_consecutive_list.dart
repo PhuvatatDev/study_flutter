@@ -10,6 +10,7 @@ int missingNumber(List<int> numbers, int N) {
 
 void main(){
   List<int> numbers = [1, 2, 4, 5]; // manquant : 3
-  print(missingNumber(numbers, 5));
+  // print(missingNumber(numbers, 5));
+  missingNumber(numbers, 5); // Result: 3
 
 }

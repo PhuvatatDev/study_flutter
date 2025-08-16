@@ -12,5 +12,6 @@ int countWordsStartingWith(List<String> words, String char) {
 }
 void main() {
   List<String> words = ['Apple', 'avion', 'Banane', 'abricot', 'chat'];
-  print(countWordsStartingWith(words, 'a')); // Affiche 3
+  // print(countWordsStartingWith(words, 'a')); // Affiche 3
+  countWordsStartingWith(words, 'a'); // Result: 3
 }

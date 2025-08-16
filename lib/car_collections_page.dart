@@ -570,7 +570,7 @@ class _CarCollectionsPageState extends State<CarCollectionsPage>
                                           begin: Alignment.bottomCenter,
                                           end: Alignment.topCenter,
                                           colors: [
-                                            Colors.black.withOpacity(0.8),
+                                            Colors.black.withValues(alpha: 0.8),
                                             Colors.transparent,
                                           ],
                                         ),
@@ -627,9 +627,9 @@ class _CarCollectionsPageState extends State<CarCollectionsPage>
                                         ),
                                         decoration: BoxDecoration(
                                           color: car.isElectric
-                                              ? Colors.green.withOpacity(0.2)
+                                              ? Colors.green.withValues(alpha: 0.2)
                                               : Colors.orange
-                                                  .withOpacity(0.2),
+                                                  .withValues(alpha: 0.2),
                                           borderRadius:
                                               BorderRadius.circular(12),
                                         ),
@@ -678,7 +678,7 @@ class _CarCollectionsPageState extends State<CarCollectionsPage>
                 : 'Voir recommandations',
           ),
           backgroundColor: _selectedCars.isEmpty
-              ? Theme.of(context).colorScheme.surfaceVariant
+              ? Theme.of(context).colorScheme.surfaceContainerHighest
               : Theme.of(context).colorScheme.primary,
           foregroundColor: _selectedCars.isEmpty
               ? Theme.of(context).colorScheme.onSurfaceVariant
