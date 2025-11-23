@@ -4,7 +4,7 @@ import 'package:equatable/equatable.dart';
 class Todo extends Equatable {
   final String todoId;
   final String content;
-  final String? themeId;
+  final String? tagId;
   final DateTime? createdAt;
   final DateTime? deadLineAt;
   final bool? isPriority;
@@ -13,7 +13,7 @@ class Todo extends Equatable {
   const Todo(
       {required this.todoId,
       required this.content,
-      this.themeId,
+      this.tagId,
       this.createdAt,
       this.deadLineAt,
       this.isPriority,
@@ -22,7 +22,7 @@ class Todo extends Equatable {
   Todo copyWith({
     String? todoId,
     String? content,
-    String? themeId,
+    String? tagId,
     DateTime? createdAt,
     DateTime? deadLineAt,
     bool? isPriority,
@@ -31,7 +31,7 @@ class Todo extends Equatable {
     return Todo(
       todoId: todoId ?? this.todoId,
       content: content ?? this.content,
-      themeId: themeId ?? this.themeId,
+      tagId: tagId ?? this.tagId,
       createdAt: createdAt ?? this.createdAt,
       deadLineAt: deadLineAt ?? this.deadLineAt,
       isPriority: isPriority ?? this.isPriority,
@@ -40,5 +40,5 @@ class Todo extends Equatable {
   }
   @override
   List<Object?> get props =>
-      [todoId, content, themeId, createdAt, deadLineAt, isPriority, isDone];
+      [todoId, content, tagId, createdAt, deadLineAt, isPriority, isDone];
 }

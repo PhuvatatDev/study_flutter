@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:study_flutter/car_collections_page.dart';
+import 'package:study_flutter/features/home/presentation/home_page.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -18,10 +19,13 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       darkTheme: ThemeData(useMaterial3: true),
-      home: const CarCollectionsPage(title: "What's your needs?"),
+      home: const HomePage()
     );
   }
 }
+
+
+
 
 
 

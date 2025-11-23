@@ -8,7 +8,7 @@ class UpdateTodoUsecase {
 
   UpdateTodoUsecase({required this.todoRepository});
 
-  Future<Either<AppError, void>> edit(Todo todo) async {
+  Future<Either<AppError, Todo>> edit(Todo todo) async {
     return todoRepository.updateTodo(todo);
   }
 }

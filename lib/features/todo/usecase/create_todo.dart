@@ -8,7 +8,7 @@ class CreateTodoUsecase {
 
   CreateTodoUsecase({required this.todoRepository});
 
-  Future<Either<AppError, void>> execute(Todo todo) async {
+  Future<Either<AppError, Todo>> execute(Todo todo) async {
     // 1. Vérifier que le content n'est pas vide
     if (todo.content.trim().isEmpty) {
       return Left(AppError(
