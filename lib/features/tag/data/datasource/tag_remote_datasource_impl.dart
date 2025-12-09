@@ -9,8 +9,14 @@ class TagRemoteDataSourceImpl implements TagRemoteDataSource {
 
   @override
   Future<TagModel> createTag(TagModel tag) async {
-    await firestore.collection('tags').doc(tag.tagId).set(tag.toJson());
-    return tag;
+    final docRef = firestore.collection('tags').doc();
+    final tagWithId = TagModel(
+      tagId: docRef.id,
+      name: tag.name,
+    );
+
+    await docRef.set(tagWithId.toJson());
+    return tagWithId;
   }
 
   @override

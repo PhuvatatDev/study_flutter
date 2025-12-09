@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:study_flutter/core/error/app_error.dart';
-import 'package:study_flutter/features/tag/entities/tag.dart';
-import 'package:study_flutter/features/tag/repositories/tag_repository.dart';
+import 'package:study_flutter/features/tag/domain/entities/tag.dart';
+import 'package:study_flutter/features/tag/domain/repositories/tag_repository.dart';
 
 class GetTagWithIdUsecase {
 

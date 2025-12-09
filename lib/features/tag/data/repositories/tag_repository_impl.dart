@@ -2,8 +2,8 @@ import 'package:dartz/dartz.dart';
 import 'package:study_flutter/core/error/app_error.dart';
 import 'package:study_flutter/features/tag/data/datasource/tag_remote_datasource.dart';
 import 'package:study_flutter/features/tag/data/model/tag_model.dart';
-import 'package:study_flutter/features/tag/entities/tag.dart';
-import 'package:study_flutter/features/tag/repositories/tag_repository.dart';
+import 'package:study_flutter/features/tag/domain/entities/tag.dart';
+import 'package:study_flutter/features/tag/domain/repositories/tag_repository.dart';
 
 class TagRepositoryImpl implements TagRepository {
   final TagRemoteDataSource remoteDataSource;

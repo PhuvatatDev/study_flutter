@@ -1,4 +1,4 @@
-import 'package:study_flutter/features/tag/entities/tag.dart';
+import 'package:study_flutter/features/tag/domain/entities/tag.dart';
 
 class TagModel extends Tag {
   const TagModel({required super.tagId, required super.name});
