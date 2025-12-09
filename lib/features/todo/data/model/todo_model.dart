@@ -1,4 +1,4 @@
-import 'package:study_flutter/features/todo/damain/entities/todo.dart';
+import 'package:study_flutter/features/todo/domain/entities/todo.dart';
 
 class TodoModel extends Todo {
   const TodoModel(
