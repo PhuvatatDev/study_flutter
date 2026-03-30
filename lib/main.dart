@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:study_flutter/features/home/presentation/home_page.dart';
+import 'package:study_flutter/katas/kata_01_counter_logic/presentation/counter_page.dart';
 import 'package:study_flutter/firebase_options.dart';
 
 void main() async {
@@ -24,6 +24,6 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         darkTheme: ThemeData(useMaterial3: true),
-        home: const HomePage());
+        home: const CounterPage());
   }
 }
