@@ -129,7 +129,12 @@ class _MyWidget extends StatelessWidget {}
 
 ## Advanced
 
-**Q15**: Read this line and explain every symbol:
+**Q15**: `{}` has 4 different meanings in Dart. Name them all and give an example of each.
+**Answer**:
+
+---
+
+**Q16**: Read this line and explain every symbol:
 ```dart
 final List<String> names = pets?.map((p) => p.name).toList() ?? [];
 ```
